@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts animation */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float 6s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #ff0000;
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.5), 0 0 80px rgba(255, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        /* Airborne wings at top corners */
+        .container::before,
+        .container::after {
+            position: absolute;
+            top: 15px;
+            font-size: 30px;
+            opacity: 0.4;
+        }
+
+        .container::before {
+            content: '🪂';
+            left: 20px;
+        }
+
+        .container::after {
+            content: '🦅';
+            right: 20px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 40px rgba(255, 0, 0, 0.5), 0 0 80px rgba(255, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(255, 0, 0, 0.7), 0 0 100px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        h1 {
+            color: #ff0000;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .big-heart {
+            font-size: 100px;
+            margin: 30px 0;
+            animation: spin 3s infinite;
+        }
+
+        @keyframes spin {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(15deg) scale(1.1);
+            }
+        }
+
+        p {
+            color: #ffcccc;
+            font-size: 24px;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .to {
+            color: #ff6666;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            color: #ff0000;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .airborne-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            color: #FFD700;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            border: 2px solid #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .airborne-badge::before,
+        .airborne-badge::after {
+            font-size: 24px;
+        }
+
+        .airborne-badge::before {
+            content: '🪂';
+            margin-right: 8px;
+        }
+
+        .airborne-badge::after {
+            content: '🪂';
+            margin-left: 8px;
+        }
+
+        /* Floating paratroopers */
+        .paratrooper {
+            position: absolute;
+            font-size: 35px;
+            opacity: 0;
+            animation: paradrop 10s infinite ease-in;
+        }
+
+        @keyframes paradrop {
+            0% {
+                transform: translateY(-100px) rotate(-10deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            80% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(10deg);
+                opacity: 0;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .valentine-button {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            border: 2px solid #ff6666;
+            padding: 18px 45px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .valentine-button:hover {
+            background: linear-gradient(135deg, #cc0000, #990000);
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.6);
+        }
+
+        .valentine-button:active {
+            transform: scale(0.95);
+        }
+
+        .signature {
+            color: #ff9999;
+            font-style: italic;
+            font-size: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❤️ Happy Valentine's Day! ❤️</h1>
+        
+        <p class="to">To: Omarie 💕</p>
+        
+        <div class="airborne-badge">My Paratrooper</div>
+        
+        <div class="big-heart">💖</div>
+        
+        <p>YES! I will absolutely be your Valentine!</p>
+        
+        <p>Every day with you is special, but on that day I want to make it official...</p>
+        
+        <p class="question">Will YOU be MY Valentine? 🌹</p>
+        
+        <div class="button-container">
+            <button class="valentine-button" onclick="handleResponse('yes')">Yes</button>
+            <button class="valentine-button" onclick="handleResponse('absolutely')">Absolutely</button>
+        </div>
+        
+        <div class="big-heart">💝</div>
+        
+        <p class="signature">With all my love,<br>Your Valentine 💕</p>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Create falling paratroopers
+        function createParatrooper() {
+            const para = document.createElement('div');
+            para.className = 'paratrooper';
+            para.innerHTML = '🪂';
+            para.style.left = Math.random() * 100 + 'vw';
+            para.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(para);
+
+            setTimeout(() => {
+                para.remove();
+            }, 10000);
+        }
+
+        // Generate hearts continuously
+        setInterval(createHeart, 300);
+        
+        // Generate paratroopers occasionally
+        setInterval(createParatrooper, 2000);
+
+        // Handle button responses
+        function handleResponse(response) {
+            if (response === 'yes') {
+                alert('Yay! 💕 I knew you would say yes! Happy Valentine\'s Day, my Airborne soldier! ❤️🪂');
+            } else {
+                alert('Absolutely! 💕 I love you so much! Happy Valentine\'s Day, my hero! ❤️🦅');
+            }
+            
+            // Create explosion of hearts
+            for(let i = 0; i < 20; i++) {
+                setTimeout(createHeart, i * 50);
+            }
+            
+            // BURST of paratroopers jumping!
+            for(let i = 0; i < 30; i++) {
+                setTimeout(createParatrooper, i * 30);
+            }
+        }
+    </script>
+</body>
+</html>
